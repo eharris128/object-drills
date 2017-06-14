@@ -1,16 +1,57 @@
+const p1 = {
+	name: "Loren",
+	job_title: "Free Lancer"
+}
+
+const p2 = {
+	name: "Jenn",
+	job_title: "web developer",
+	boss: "Bob"
+}
+
+const p3 = {
+	name: "Nicole",
+	job_title: "Arrangements Abroad",
+	boss: "SpongeBob"
+}
+
+function makeFriendsArr( x, y, z) {
+	let friends = [];
+	friends.push.apply(friends, [x, y, z]);
+	return friends;
+}
+
+let realFriends= makeFriendsArr(p1, p2, p3)
+
+
+function convertToProfiles(arr){
+	arr.forEach( function(profile) {
+		if (profile.boss === undefined) {
+			console.log(`${profile.job_title} ${profile.name} does not report to anybody.`);
+		} else {
+			console.log(`${profile.job_title} ${profile.name} reports to ${profile.boss}`);
+		}
+	}		
+	)
+}
+
+convertToProfiles(realFriends);
+
 // const p1 = {
 // 	name: "Loren",
-// 	job_title: "Free Lancer",
+// 	job_title: "Free Lancer"
 // }
 
 // const p2 = {
 // 	name: "Jenn",
 // 	job_title: "web developer",
+// 	boss: "Bob"
 // }
 
 // const p3 = {
 // 	name: "Nicole",
 // 	job_title: "Arrangements Abroad",
+// 	boss: "SpongeBob"
 // }
 
 // function makeFriendsArr( x, y, z) {
@@ -27,14 +68,15 @@
 // 	arr.forEach(
 // 		function(profile) {for(let prop in profile) {
 // 			console.log(profile[prop])
+// 			// console.log(`${profile[prop]} ${profile[prop]} reports to ${profile[prop]}`);
+// 			// Junior Engineer Bob reports to Fred
 // 			}
 // 		}
 // 	)
 // }
 
 
-// convertToProfiles([p1, p2, p3]);
-
+// convertToProfiles(realFriends);
 
 
 // // const objTwo = {
@@ -66,16 +108,16 @@
 // //   console.log(`obj.${prop} = ${obj[prop]}`);
 // // }
 
-// // const loaf = {
-// // 	flour: 300,
-// // 	water: 210,
-// // 	hydration: function() {
-// // 		return (this.water/this.flour) * 100;
-// // 	}
-// // }
+// const loaf = {
+// 	flour: 300,
+// 	water: 210,
+// 	hydration: function() {
+// 		return (this.water/this.flour) * 100;
+// 	}
+// }
 
-// // console.log(Object.keys(loaf));
-// // console.log(loaf.flour + ' ' + loaf.water);
+// console.log(Object.keys(loaf));
+// console.log(loaf.flour + ' ' + loaf.water);
 
-// //console.log(loaf.hydration());
+//console.log(loaf.hydration());
 
