@@ -1,35 +1,64 @@
-function decoder(word) {
-	let letter = word[0];
-		switch (letter) {
-			case 'a':
-				return word[1];
-				break;
-			case 'b':
-				return word[2];
-				break;
-			case 'c':
-				return word[3];
-				break;
-			case 'd':
-				return word[4];
-				break;
-			default:
-				return " ";
-		}
+
+// function decoder(word) {
+// 	let letter = word[0];
+// 		switch (letter) {
+// 			case 'a':
+// 				return word[1];
+// 				break;
+// 			case 'b':
+// 				return word[2];
+// 				break;
+// 			case 'c':
+// 				return word[3];
+// 				break;
+// 			case 'd':
+// 				return word[4];
+// 				break;
+// 			default:
+// 				return " ";
+// 		}
+// }
+
+
+//Does not truly use obj to solve
+const obj = {
+	// a: word[1],
+	// b: word[2],
+	// c: word[3],
+	// d: word[4]
+	a: 'a',
+	b: 'b',
+	c: 'c',
+	d: 'd'
 }
 
 function decodeString(string) {
 	const words = string.split(" ");
-	let result = "";
+	//[craft, block, argon, meter, ....]
+	let results = "";
 	for (let i = 0; i < words.length; i++) {
-		result+= decoder(words[i]);
+		const myCode = Object.keys(obj); // => [a, b, c, d]
+		if (words[i][0] === myCode[0]){
+			results += words[i][1];
+		} else if (words[i][0] === myCode[1]) {
+			results += words[i][2];
+		} else if (words[i][0] === myCode[2]) {
+			results += words[i][3];
+		} else if (words[i][0] === myCode[3]) {
+			results += words[i][4];
+		} else {
+			results += " ";
+		}
 	}
-	return result;
+	console.log(results);
+	return results;
 }
 
 let message = decodeString('craft block argon meter bells brown croon droop');
 
-console.log(message);
+//
+
+//console.log(message);
 
 // const p1 = {
 // 	name: "Loren",
