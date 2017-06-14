@@ -1,41 +1,74 @@
-const p1 = {
-	name: "Loren",
-	job_title: "Free Lancer"
-}
-
-const p2 = {
-	name: "Jenn",
-	job_title: "web developer",
-	boss: "Bob"
-}
-
-const p3 = {
-	name: "Nicole",
-	job_title: "Arrangements Abroad",
-	boss: "SpongeBob"
-}
-
-function makeFriendsArr( x, y, z) {
-	let friends = [];
-	friends.push.apply(friends, [x, y, z]);
-	return friends;
-}
-
-let realFriends= makeFriendsArr(p1, p2, p3)
-
-
-function convertToProfiles(arr){
-	arr.forEach( function(profile) {
-		if (profile.boss === undefined) {
-			console.log(`${profile.job_title} ${profile.name} does not report to anybody.`);
-		} else {
-			console.log(`${profile.job_title} ${profile.name} reports to ${profile.boss}`);
+function decoder(word) {
+	let letter = word[0];
+		switch (letter) {
+			case 'a':
+				return word[1];
+				break;
+			case 'b':
+				return word[2];
+				break;
+			case 'c':
+				return word[3];
+				break;
+			case 'd':
+				return word[4];
+				break;
+			default:
+				return " ";
 		}
-	}		
-	)
 }
 
-convertToProfiles(realFriends);
+function decodeString(string) {
+	const words = string.split(" ");
+	let result = "";
+	for (let i = 0; i < words.length; i++) {
+		result+= decoder(words[i]);
+	}
+	return result;
+}
+
+let message = decodeString('craft block argon meter bells brown croon droop');
+
+console.log(message);
+
+// const p1 = {
+// 	name: "Loren",
+// 	job_title: "Free Lancer"
+// }
+
+// const p2 = {
+// 	name: "Jenn",
+// 	job_title: "web developer",
+// 	boss: "Bob"
+// }
+
+// const p3 = {
+// 	name: "Nicole",
+// 	job_title: "Arrangements Abroad",
+// 	boss: "SpongeBob"
+// }
+
+// function makeFriendsArr( x, y, z) {
+// 	let friends = [];
+// 	friends.push.apply(friends, [x, y, z]);
+// 	return friends;
+// }
+
+// let realFriends= makeFriendsArr(p1, p2, p3)
+
+
+// function convertToProfiles(arr){
+// 	arr.forEach( function(profile) {
+// 		if (profile.boss === undefined) {
+// 			console.log(`${profile.job_title} ${profile.name} does not report to anybody.`);
+// 		} else {
+// 			console.log(`${profile.job_title} ${profile.name} reports to ${profile.boss}`);
+// 		}
+// 	}		
+// 	)
+// }
+
+// convertToProfiles(realFriends);
 
 // const p1 = {
 // 	name: "Loren",
